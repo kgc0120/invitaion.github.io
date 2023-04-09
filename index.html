@@ -168,6 +168,7 @@
 
 					<section>
 						<p>
+							<br>
 							<h3>&nbsp;&nbsp;&nbsp;<ion-icon name="bus-outline"></ion-icon> &nbsp;<strong>버스 이용시</strong></h3>
 							<h3>&nbsp;&nbsp;▶ 제일중학교 정류장 하차</h3>
 
@@ -209,18 +210,18 @@
 									<span class="icon style2 major fa-gem"></span>
 									<h3>신랑측</h3>
 									<p>
-										부 -김종복. 농협. 653810.52.048929<br>
-										모 -박영이. 농협. 653015.52.267966<br>
-										신랑-김진우. 농협. 351.0375.7435.73<br>
+										<a onclick="copy_to_clipboard('husbandF')" id="husbandF" data-value="653810.52.048929" class="button small">부 -김종복. 농협. 653810.52.048929</a>
+										<a onclick="copy_to_clipboard('husbandM')" id="husbandM" data-value="653015.52.267966" class="button small">모 -박영이. 농협. 653015.52.267966</a>
+										<a onclick="copy_to_clipboard('husband')" id="husband" data-value="351.0375.7435.73" class="button small">신랑-김진우. 농협. 351.0375.7435.73</a>
 									</p>
 								</section>
 								<section>
 									<span class="icon style2 major fa-gem"></span>
 									<h3>신부측</h3>
 									<p>
-										부 -문승인. 우체국. 503763.02111600<br>
-										모 -김수정. 우체국. 503508.02.226831<br>
-										신부 -문서현. 농협. 175663.51.026637<br>
+										<a onclick="copy_to_clipboard('wifeF')" id="wifeF" data-value="503763.02111600" class="button small">부 -문승인. 우체국. 503763.02111600</a>
+										<a onclick="copy_to_clipboard('wifeM')" id="wifeM" data-value="503508.02.226831" class="button small">모 -김수정. 우체국. 503508.02.226831</a>
+										<a onclick="copy_to_clipboard('wife')" id="wife" data-value="175663.51.026637" class="button small">신부 -문서현. 농협. 175663.51.026637</a>
 									</p>
 								</section>
 							</div>
@@ -290,6 +291,17 @@
 			document.getElementById('dDay').innerHTML = "<strong>D-DAY&nbsp;&nbsp;-&nbsp;&nbsp;"+timeDifferenceDays+"</strong>";
 		}
 
+		function copy_to_clipboard(target) {
+			let tempInput = document.createElement("input")
+			tempInput.value = document.getElementById(target).getAttribute('data-value');
+
+			// 굳이 body일 필요는 없습니다. 아무 엘리먼트나 지정해서 작성해도 무관합니다.
+			document.body.appendChild(tempInput);
+			tempInput.select();
+			document.execCommand("copy");
+			document.body.removeChild(tempInput);
+			alert("계좌가 복사되었습니다.");
+		}
 
 	</script>
 </html>
